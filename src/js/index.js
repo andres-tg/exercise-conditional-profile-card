@@ -33,14 +33,34 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1> ${variables.name ? variables.name : "Va tu nombre,"} 
+               ${
+                 variables.lastname ? variables.lastname : "pon el apellido."
+               } </h1>
+          <h2> ${variables.rol ? variables.rol : "rol"} </h2>
+          <h3> ${variables.ciudad ? variables.ciudad : "ciudad -"}
+               ${variables.pais ? variables.pais : "pais"}
+          </h3>
+
+          <ul class="${variables.socialMediaPosition}"> 
+            <li><a href="https://twitter.com/
+               ${
+                 variables.twitter ? variables.twitter : "Andres_STG"
+               }"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/
+               ${
+                 variables.github ? variables.github : "andres-tg"
+               }"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/ 
+               ${
+                 variables.linkedin
+                   ? variables.linkedin
+                   : "andrés-torres-garcía-99a608200"
+               }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/
+               ${
+                 variables.instagram ? variables.instagram : "andrestg_"
+               }"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -61,7 +81,7 @@ window.onload = function() {
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
